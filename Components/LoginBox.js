@@ -10,14 +10,18 @@ const LoginBox = () =>{
 
 
     //CREATE LOGIN FUNCTION  
-   
+   const login = (username, password) =>{
+       console.log('Username: ', username)
+       console.log("Password: ", password)
+       navigation.goBack()
+   }
     return(
         <View style={{display:'flex', flexDirection:'column', padding:'12%', borderWidth:1, padding: 10, margin:10, paddingTop:30, shadowColor:'black' }} >
             
             
-                <TextInput style={styles.input} />
-                <TextInput style={styles.input} />
-                <Button title='Login' onPress={() => navigation.goBack()}/>
+                <TextInput style={styles.input} title="Username" onChangeText={(text) => setUser(text)} />
+                <TextInput style={styles.input} onChangeText={(text) => setPassword(text)}/>
+                <Button title='Login' onPress={() => login(username, password)}/>
             
         
         </View>
