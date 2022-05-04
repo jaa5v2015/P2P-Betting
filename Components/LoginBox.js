@@ -9,7 +9,7 @@ const LoginBox = () =>{
     const [password, setPassword] = useState('')
 
 
-    //CREATE LOGIN FUNCTION  osadpsaojmdpsadposakdp[osakd]
+    //CREATE LOGIN FUNCTION  
    
     return(
         <View style={{display:'flex', flexDirection:'column', padding:'12%', borderWidth:1, padding: 10, margin:10, paddingTop:30, shadowColor:'black' }} >
