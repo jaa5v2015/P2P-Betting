@@ -3,7 +3,7 @@ import {useState} from 'react'
 import { useNavigation } from '@react-navigation/native';
 import Login from '../Screens/Login';
 
-const LoginBox = (props) =>{
+const LoginBox = (route) =>{
     const navigation= useNavigation()
     const [username, setUser] = useState('')
     const [password, setPassword] = useState('')
@@ -22,7 +22,7 @@ const LoginBox = (props) =>{
                 <TextInput style={styles.input} title="Username" onChangeText={(text) => setUser(text)} />
                 <TextInput style={styles.input} onChangeText={(text) => setPassword(text)}/>
                 <Button title='Login' onPress={() => login(username, password)}/>
-
+                   {console.log(route)}
                 <View class='divider'/>
                 
         

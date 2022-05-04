@@ -8,7 +8,7 @@ const Login = ({navigation}) =>{
     return(
         <View style={{flexDirection:"column", alignItems:'center', flex: 0.7, justifyContent:'center'}}>
             <LoginBox />
-
+            
             <Button title="Create account"/>
         </View>
     )
