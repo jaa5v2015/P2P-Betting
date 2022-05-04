@@ -3,7 +3,7 @@ import {useState} from 'react'
 import { useNavigation } from '@react-navigation/native';
 import Login from '../Screens/Login';
 
-const LoginBox = () =>{
+const LoginBox = (props) =>{
     const navigation= useNavigation()
     const [username, setUser] = useState('')
     const [password, setPassword] = useState('')
@@ -11,18 +11,20 @@ const LoginBox = () =>{
 
     //CREATE LOGIN FUNCTION  
    const login = (username, password) =>{
-       console.log('Username: ', username)
-       console.log("Password: ", password)
+       console.log(username)
+       console.log(password)
        navigation.goBack()
    }
     return(
-        <View style={{display:'flex', flexDirection:'column', padding:'12%', borderWidth:1, padding: 10, margin:10, paddingTop:30, shadowColor:'black' }} >
+        <View style={[styles.shadow,{display:'flex', flexDirection:'column', padding:'12%', padding: 10, margin:10, paddingTop:30,}]} >
             
             
                 <TextInput style={styles.input} title="Username" onChangeText={(text) => setUser(text)} />
                 <TextInput style={styles.input} onChangeText={(text) => setPassword(text)}/>
                 <Button title='Login' onPress={() => login(username, password)}/>
-            
+
+                <View class='divider'/>
+                
         
         </View>
 
@@ -36,6 +38,14 @@ const styles = StyleSheet.create({
         padding: 10,
         margin: 10
     },
+    shadow:{
+    borderColor:'black', // if you need 
+      borderWidth: 1,
+      overflow: 'hidden',
+      shadowColor: 'grey',
+      shadowRadius: 10,
+      shadowOpacity: 1,
+    }
 })
 
 export default LoginBox;
