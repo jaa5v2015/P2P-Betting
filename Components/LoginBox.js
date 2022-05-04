@@ -13,7 +13,7 @@ const LoginBox = (route) =>{
    const login = (username, password) =>{
        console.log(username)
        console.log(password)
-       navigation.goBack()
+       navigation.navigate('Home',{loggedIn: true, account: username})
    }
     return(
         <View style={[styles.shadow,{display:'flex', flexDirection:'column', padding:'12%', padding: 10, margin:10, paddingTop:30,}]} >
@@ -22,7 +22,6 @@ const LoginBox = (route) =>{
                 <TextInput style={styles.input} title="Username" onChangeText={(text) => setUser(text)} />
                 <TextInput style={styles.input} onChangeText={(text) => setPassword(text)}/>
                 <Button title='Login' onPress={() => login(username, password)}/>
-                   {console.log(route)}
                 <View class='divider'/>
                 
         

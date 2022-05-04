@@ -3,6 +3,11 @@ import { useEffect } from 'react/cjs/react.production.min';
 import Login from './Login';
 const Home = ({navigation, route}) =>{
     
+    const logout = () =>{
+        route.params.setLogin()
+    }
+
+
    if(route.params.loggedIn == false){
     return(
         <View style={{justifyContent:'center', alignItems:'center', flex:1}}>
@@ -10,7 +15,9 @@ const Home = ({navigation, route}) =>{
                 <Text>Home</Text>
             </View>
             
-            <Button  title="Login" onPress={()=> navigation.navigate('Login', {loggedIn: route.params.loggedIn})}/>
+            <Button  title="Login" onPress={()=> navigation.navigate('Login', {
+                params:{bool: route.params.loggedIn}
+            })}/>
             
         </View>
     )
@@ -19,11 +26,11 @@ const Home = ({navigation, route}) =>{
        return(
         <View style={{justifyContent:'center', alignItems:'center', flex:1}}>
         <View>
-            <Text>Logged in Home</Text>
-            
+            <Text>Logged in as {route.params.account}</Text>
+         
         </View>
         
-        <Button  title="Login" onPress={()=> navigation.navigate('Login')}/>
+        <Button  title="Logout" onPress={()=> navigation.navigate('Home',{loggedIn: false})}/>
         
     </View>
        )

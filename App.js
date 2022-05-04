@@ -11,11 +11,20 @@ export default function App() {
   
   const [loggedIn, setLogin] = useState(false)
 
+  const logout = () =>{
+    setLogin(false)
+  } 
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName='Home'>
         {console.log(loggedIn)}
-        <Stack.Screen name='Home'  component={Home} initialParams={{loggedIn: loggedIn, setLogin:setLogin}}/>
+        <Stack.Screen name='Home'  component={Home}
+         initialParams={{
+           loggedIn: loggedIn, 
+           account: "",
+           
+           
+           }}/>
 
         <Stack.Screen name='Login' component={Login} />
 
