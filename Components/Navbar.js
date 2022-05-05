@@ -30,7 +30,7 @@ const Navbar = (props) =>{
         return (
             <View style={{margin:10, display:'flex', flexDirection:'row', height:'10%', justifyContent:'space-between', alignItems:'center'}}>
                 <Icon onPress={()=> navigation.goBack()}  size={60} type='evilicon' name='arrow-left'/>
-                <Icon size={60} type='evilicon' name='user'/>
+                <Icon onPress={()=> navigation.navigate('Account')} size={60} type='evilicon' name='user'/>
                 <Button  title="Logout" onPress={()=> logout()}/>
             </View>
         )
