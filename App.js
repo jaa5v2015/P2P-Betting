@@ -5,31 +5,34 @@ import {NavigationContainer, StackActions} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './Screens/Home';
 import Login from './Screens/Login';
+import Account from './Screens/Account';
+import Navbar from './Components/Navbar';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   
   const [loggedIn, setLogin] = useState(false)
 
-  const logout = () =>{
-    setLogin(false)
-  } 
+  function renderLogin(){
+    setLogin(!loggedIn)
+  }
+
   return (
+    
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Home'>
-        {console.log(loggedIn)}
+      
+      <Stack.Navigator initialRouteName='Home' screenOptions={{headerShown: false}}>
+        
         <Stack.Screen name='Home'  component={Home}
          initialParams={{
            loggedIn: loggedIn, 
-           account: "",
-           
-           
+           account: '',
            }}/>
 
         <Stack.Screen name='Login' component={Login} />
-
+        <Stack.Screen name='Account' component={Account}/>
       </Stack.Navigator>
-      <StatusBar/>
+      <Navbar loggedIn={loggedIn} renderLogin={renderLogin}/>
     </NavigationContainer>
   );
 }

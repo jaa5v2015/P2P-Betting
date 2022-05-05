@@ -3,12 +3,11 @@ import {View, Text} from 'react-native'
 
 const Post = () =>{
     return(
-        <View>
-        <Text>Jacob Anders</Text>
-        <Text>
-            The Titans fucking suck
-        </Text>
-    </View>
+        <View style={{display:'flex', flexDirection:'column', padding:50}}>
+            <Text>Jacob Anderson</Text>
+            <Text>Image</Text>
+        </View>
+
     )
 }
 
