@@ -3,7 +3,7 @@ import {useState} from 'react'
 import { useNavigation } from '@react-navigation/native';
 
 
-const LoginBox = (route) =>{
+const CreateAccount = (route) =>{
     const navigation= useNavigation()
     const [username, setUser] = useState('')
     const [password, setPassword] = useState('')
@@ -12,7 +12,8 @@ const LoginBox = (route) =>{
     //CREATE LOGIN FUNCTION  
    const login = (username, password) =>{
        
-       navigation.navigate('Home',{loggedIn: true, account: username})
+        navigation.navigate('Account',{account: username})    
+      
         route.renderLogin(true)
    }
     return(
@@ -21,7 +22,7 @@ const LoginBox = (route) =>{
                 
                 <TextInput style={styles.input} title="Username" onChangeText={(text) => setUser(text)} />
                 <TextInput style={styles.input} onChangeText={(text) => setPassword(text)}/>
-                <Button title='Login' onPress={() => login(username, password)}/>
+                <Button title='Create Account' onPress={() => login(username, password)}/>
                 <View class='divider'/>
                 
         
@@ -47,4 +48,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default LoginBox;
+export default CreateAccount;

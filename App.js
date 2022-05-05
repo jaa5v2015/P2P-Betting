@@ -7,14 +7,15 @@ import Home from './Screens/Home';
 import Login from './Screens/Login';
 import Account from './Screens/Account';
 import Navbar from './Components/Navbar';
+import { render } from 'react-dom';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   
   const [loggedIn, setLogin] = useState(false)
 
-  function renderLogin(){
-    setLogin(!loggedIn)
+  function renderLogin(bool){
+    setLogin(bool)
   }
 
   return (
@@ -29,7 +30,7 @@ export default function App() {
            account: '',
            }}/>
 
-        <Stack.Screen name='Login' component={Login} />
+        <Stack.Screen name='Login' component={Login} initialParams={{renderLogin:renderLogin}} />
         <Stack.Screen name='Account' component={Account}/>
       </Stack.Navigator>
       <Navbar loggedIn={loggedIn} renderLogin={renderLogin}/>

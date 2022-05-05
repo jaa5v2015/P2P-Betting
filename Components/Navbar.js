@@ -5,13 +5,13 @@ const Navbar = (props) =>{
     const navigation = useNavigation()
 
     function login(){
-        navigation.navigate('Login', {loggedIn:false})
-        props.renderLogin()
+        navigation.navigate('Login')
+        
     }
 
     function logout(){
         navigation.navigate('Home', {loggedIn: false})
-        props.renderLogin()
+        props.renderLogin(false)
     }
 
 
