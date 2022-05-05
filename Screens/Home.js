@@ -1,5 +1,6 @@
 import {View, Text, Button } from 'react-native'
 import { useEffect } from 'react/cjs/react.production.min';
+import Feed from '../Components/Feed';
 import Login from './Login';
 const Home = ({navigation, route}) =>{
     
@@ -26,7 +27,9 @@ const Home = ({navigation, route}) =>{
        return(
         <View style={{justifyContent:'center', alignItems:'center', flex:1}}>
         <View>
-            <Text>Logged in as {route.params.account}</Text>
+
+
+            <Feed></Feed>
          
         </View>
         
