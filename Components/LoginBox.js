@@ -12,7 +12,7 @@ const LoginBox = (route) =>{
     //CREATE LOGIN FUNCTION  
    const login = (username, password) =>{
        
-       navigation.navigate('Home',{loggedIn: true, account: username})
+       navigation.navigate('Account',{loggedIn: true, account: username})
         route.renderLogin(true)
    }
     return(
