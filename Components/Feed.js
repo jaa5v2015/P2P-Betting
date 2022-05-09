@@ -1,9 +1,17 @@
 
 import {View, Text} from 'react-native'
 import Post from './Post';
-const Feed = () =>{
+const Feed = (props) =>{
     return(
-        <Post/>
+        <View>
+            {
+                props.posts.map(post =>{
+                    return(<Post post={post} />)
+                    
+                })
+            }
+            
+        </View>
     )
 }
 

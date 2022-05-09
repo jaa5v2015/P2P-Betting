@@ -11,7 +11,7 @@ const Navbar = (props) =>{
     }
 
     function logout(){
-        navigation.navigate('Home', {loggedIn: false})
+        navigation.navigate('Login', {loggedIn: false})
         props.renderLogin(false)
     }
 
@@ -19,11 +19,8 @@ const Navbar = (props) =>{
     
     if(props.loggedIn == false){
         return(
-            <View style={{margin:10, display:'flex', flexDirection:'row', height:'10%', justifyContent:'space-between', alignItems:'center'}}>
-                <Icon onPress={()=> navigation.navigate('Home')}  size={60} type='evilicon' name='arrow-left'/>
-                <ModalComponent loggedIn={props.loggedIn} renderLogin={login} />
+            <View style={{display:'none'}}>
                 
-                <Icon color="blue" onPress={login} size={40} name="login"/>
             </View>
         )
     }
@@ -32,10 +29,14 @@ const Navbar = (props) =>{
     else{
         return (
             <View style={{margin:10, display:'flex', flexDirection:'row', height:'10%', justifyContent:'space-between', alignItems:'center'}}>
-                <Icon onPress={()=> navigation.navigate('Home')}  size={60} type='evilicon' name='arrow-left'/>
-                
+                <Icon type='font-awesome' onPress={()=> navigation.navigate('Home')}  size={40} name='home'/>
+                <Icon type='font-awesome' size={40} name='plus'/>
                 <ModalComponent loggedIn={props.loggedIn} renderLogin={logout} />
-                <Icon color="red" name="login" size={40} onPress={()=> logout()}/>
+                
+                <Icon type='font-awesome' size={40} name='bell'/>
+                <Icon type='font-awesome' size={40} name='search'/>
+                
+
             </View>
         )
     }

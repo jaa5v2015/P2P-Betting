@@ -7,14 +7,12 @@ const CreateAccount = (route) =>{
     const navigation= useNavigation()
     const [username, setUser] = useState('')
     const [password, setPassword] = useState('')
-
-
+    
     //CREATE LOGIN FUNCTION  
-   const login = (username, password) =>{
-       
-        navigation.navigate('Account',{account: username})    
-      
-        route.renderLogin(true)
+   const login = ( username, password) =>{
+    
+    navigation.navigate('Account',{loggedIn: true, account: {username: username, password: password}})
+    route.renderLogin(true)
    }
     return(
         <View style={[styles.shadow,{display:'flex', flexDirection:'column', padding:'12%', padding: 10, margin:10, paddingTop:30,}]} >

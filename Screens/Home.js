@@ -25,8 +25,7 @@ const Home = ({navigation, route}) =>{
         <View style={{justifyContent:'center', alignItems:'center', flex:1}}>
         <View>
 
-
-            <Feed/>
+            <Text>Feed</Text>
          
         </View>
        

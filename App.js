@@ -8,21 +8,26 @@ import Login from './Screens/Login';
 import Account from './Screens/Account';
 import Navbar from './Components/Navbar';
 import { render } from 'react-dom';
+import data from './data';
+
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   
   const [loggedIn, setLogin] = useState(false)
-
-  function renderLogin(bool){
+  const [account, setAccount] = useState([])
+  
+  function renderLogin(bool, account){
     setLogin(bool)
+    setAccount(account)
   }
 
   return (
     
     <NavigationContainer>
       
-      <Stack.Navigator initialRouteName='Home' screenOptions={{headerShown: false}}>
+      <Stack.Navigator initialRouteName='Login' screenOptions={{headerShown: false}}>
         
         <Stack.Screen name='Home'  component={Home}
          initialParams={{
@@ -30,12 +35,18 @@ export default function App() {
            account: '',
            }}/>
 
-        <Stack.Screen name='Login' component={Login} initialParams={{renderLogin:renderLogin}} />
-        <Stack.Screen name='Account' component={Account}/>
+        <Stack.Screen name='Login' component={Login} initialParams={{renderLogin:renderLogin, data: data}} />
+        <Stack.Screen name='Account' component={Account} initialParams={{account: account}} />
       </Stack.Navigator>
       <Navbar loggedIn={loggedIn} renderLogin={renderLogin}/>
     </NavigationContainer>
   );
 }
 
+
+const styles = StyleSheet.create({
+  accountView:{
+    display: 'flex'
+  }
+});
 

@@ -34,7 +34,7 @@ function moveAccount(){
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             
-          <Button style={[styles.button, styles.buttonClose]} onPress={() => moveAccount()} title="Account"/>
+          <Button style={{paddingBottom: 12}} onPress={() => moveAccount()} title="Account"/>
 
             {
                 props.loggedIn ? 
@@ -51,7 +51,7 @@ function moveAccount(){
         </View>
       </Modal>
       
-          <Icon onPress={()=> setModalVisible(true)} size={60} type='evilicon' name='user'/>
+          <Icon class='fa-duotone' onPress={()=> setModalVisible(true)} size={40} type='font-awesome' name='user'/>
         
       
     </View>
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     marginTop: 22,
   },
   modalView: {
-    display: 'flex',
+    
     margin: 20,
     backgroundColor: "white",
     justifyContent:'space-between',
@@ -85,7 +85,8 @@ const styles = StyleSheet.create({
   button: {
     borderRadius: 20,
     padding: 10,
-    elevation: 2
+    elevation: 2,
+    
   },
   buttonOpen: {
     backgroundColor: "#F194FF",
