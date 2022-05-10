@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import { StyleSheet, Text, View  } from 'react-native';
 import {NavigationContainer, StackActions} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -23,6 +23,13 @@ export default function App() {
     setAccount(account)
   }
 
+  useEffect(async ()=>{
+    let res = await fetch('http://localhost:3000/profile')
+
+    console.log(res)
+  })
+
+ 
   return (
     
     <NavigationContainer>
@@ -32,7 +39,7 @@ export default function App() {
         <Stack.Screen name='Home'  component={Home}
          initialParams={{
            loggedIn: loggedIn, 
-           account: '',
+           account: account,
            }}/>
 
         <Stack.Screen name='Login' component={Login} initialParams={{renderLogin:renderLogin, data: data}} />
