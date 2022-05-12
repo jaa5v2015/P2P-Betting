@@ -9,6 +9,7 @@ import Account from './Screens/Account';
 import Navbar from './Components/Navbar';
 import { render } from 'react-dom';
 import data from './data';
+import axios from 'axios'
 
 
 const Stack = createNativeStackNavigator();
@@ -17,17 +18,12 @@ export default function App() {
   
   const [loggedIn, setLogin] = useState(false)
   const [account, setAccount] = useState([])
-  
+  const [profiles, setProfiles] = useState([])
+  const url = ''
   function renderLogin(bool, account){
     setLogin(bool)
     setAccount(account)
   }
-
-  useEffect(async ()=>{
-    let res = await fetch('http://localhost:3000/profile')
-
-    console.log(res)
-  })
 
  
   return (
@@ -35,7 +31,7 @@ export default function App() {
     <NavigationContainer>
       
       <Stack.Navigator initialRouteName='Login' screenOptions={{headerShown: false}}>
-        
+       
         <Stack.Screen name='Home'  component={Home}
          initialParams={{
            loggedIn: loggedIn, 
@@ -47,6 +43,7 @@ export default function App() {
       </Stack.Navigator>
       <Navbar loggedIn={loggedIn} renderLogin={renderLogin}/>
     </NavigationContainer>
+    
   );
 }
 

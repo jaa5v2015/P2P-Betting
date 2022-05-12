@@ -2,7 +2,7 @@
 import {View, Text, ProgressViewIOS} from 'react-native'
 import styles from '../Style/styles'
 const Post = (props) =>{
-    console.log(props)
+    
     return(
      <View style={styles.post}>
 

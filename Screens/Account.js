@@ -3,8 +3,17 @@ import {View, Text, Image} from 'react-native';
 import { useEffect } from 'react';
 import styles from '../Style/styles'
 import Feed from '../Components/Feed';
+import axios from 'axios'
 const Account = ({route}, prop) =>{
+ 
+    useEffect(async ()=>{
+        fetchApi()
+      }, [])
     
+      const fetchApi = async () =>{
+        const res = await axios.get('http://10.170.139.191:3000/profile')
+        console.log(res.data)
+      }
 
 
     return(
