@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import {useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import { StyleSheet, Text, View  } from 'react-native';
 import {NavigationContainer, StackActions} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -7,50 +7,54 @@ import Home from './Screens/Home';
 import Login from './Screens/Login';
 import Account from './Screens/Account';
 import Navbar from './Components/Navbar';
-import { render } from 'react-dom';
-import data from './data';
-import axios from 'axios'
-
 
 const Stack = createNativeStackNavigator();
 
-export default function App() {
-  
-  const [loggedIn, setLogin] = useState(false)
-  const [account, setAccount] = useState([])
-  const [profiles, setProfiles] = useState([])
-  const url = ''
-  function renderLogin(bool, account){
-    setLogin(bool)
-    setAccount(account)
+
+
+export default class App extends React.Component {
+
+  constructor(props){
+    super(props);
+    this.state ={
+      loggedIn: false,
+      account: [],
+      data: []
+    }
   }
 
- 
-  return (
+  renderLogin = (bool, account)=>{
     
-    <NavigationContainer>
+    this.setState({loggedIn: bool})
+    this.setState({account: account})
+    
+  }
+
+
+ 
+
+
+
+
+  render(){
+    return(
+      <NavigationContainer>
       
       <Stack.Navigator initialRouteName='Login' screenOptions={{headerShown: false}}>
        
         <Stack.Screen name='Home'  component={Home}
          initialParams={{
-           loggedIn: loggedIn, 
-           account: account,
+           loggedIn: this.state.loggedIn, 
+           account: this.state.account,
            }}/>
-
-        <Stack.Screen name='Login' component={Login} initialParams={{renderLogin:renderLogin, data: data}} />
-        <Stack.Screen name='Account' component={Account} initialParams={{account: account}} />
+      
+        <Stack.Screen name='Login' component={Login} initialParams={{renderLogin:this.renderLogin}} />
+        <Stack.Screen name='Account' component={Account} initialParams={{account: this.state.account}} />
       </Stack.Navigator>
-      <Navbar loggedIn={loggedIn} renderLogin={renderLogin}/>
+        
+      <Navbar loggedIn={this.state.loggedIn} renderLogin={this.renderLogin}/>
     </NavigationContainer>
-    
-  );
-}
-
-
-const styles = StyleSheet.create({
-  accountView:{
-    display: 'flex'
+    )
   }
-});
 
+}

@@ -1,18 +1,20 @@
 import {View, Text, TextInput, SafeAreaView, StyleSheet, Button, Alert} from 'react-native';
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import { useNavigation } from '@react-navigation/native';
 
 
-const LoginBox = (route) =>{
+const LoginBox = (props) =>{
     const navigation= useNavigation()
     const [username, setUser] = useState('')
     const [password, setPassword] = useState('')
     const [account, setAccount] = useState([])
-    
+   
     //CREATE LOGIN FUNCTION  
    const login = (username, password) =>{
        var loggedIn = false
-       route.data.map(
+     
+       
+       props.data.accounts.map(
            account=>{
                
                if(account.username == username & account.password == password){
@@ -20,7 +22,7 @@ const LoginBox = (route) =>{
                     setAccount(account)
                     
                     navigation.navigate('Account',{loggedIn: true, account: account})
-                    route.renderLogin(true, account)
+                    props.renderLogin(true, account)
                     loggedIn = true
                } 
            }
@@ -39,18 +41,22 @@ const LoginBox = (route) =>{
             ]
         )
        }
-           
+    
+      
            
    }
+
+  
+
     return(
         <View style={[styles.shadow,{display:'flex', flexDirection:'column', padding:'12%', padding: 10, margin:10, paddingTop:30,}]} >
-            
-                
                 <TextInput style={styles.input} title="Username" onChangeText={(text) => setUser(text)} />
                 <TextInput style={styles.input} onChangeText={(text) => setPassword(text)}/>
                 <Button title='Login' onPress={() => login(username, password)}/>
                 <View class='divider'/>
-                
+           
+
+               
         
         </View>
 

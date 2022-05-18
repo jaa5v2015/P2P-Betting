@@ -1,20 +1,12 @@
 import { useNavigation } from '@react-navigation/native';
 import {View, Text, Image} from 'react-native';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import styles from '../Style/styles'
 import Feed from '../Components/Feed';
 import axios from 'axios'
-const Account = ({route}, prop) =>{
+const Account = ({route}) =>{
  
-    useEffect(async ()=>{
-        fetchApi()
-      }, [])
-    
-      const fetchApi = async () =>{
-        const res = await axios.get('http://10.170.139.191:3000/profile')
-        console.log(res.data)
-      }
-
+    const [account, setAccount] = useState([])
 
     return(
         <View style={styles.container}>
@@ -27,7 +19,7 @@ const Account = ({route}, prop) =>{
                     <Text>{route.params.account.followers.length} Followers</Text>
                     <Text>{route.params.account.following.length} Following</Text>
                     <Text>Team: {route.params.account.info.favTeam}</Text>
-
+                       
                 </View>
 
             </View>
