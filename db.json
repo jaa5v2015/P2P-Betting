@@ -1,0 +1,45 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "api",
+    "accounts": [
+      {
+        "username": "Jaa5v",
+        "password": "1234",
+        "followers": [],
+        "info": {
+          "bio": " ",
+          "profilePic": " ",
+          "name": " Jacob Anderson"
+        },
+        "following": [],
+        "posts": []
+      },
+      {
+        "username": "CURK",
+        "password": "1234",
+        "followers": [],
+        "info": {
+          "bio": " ",
+          "profilePic": " ",
+          "name": "Curtis Hudson"
+        },
+        "following": [],
+        "posts": []
+      }
+    ]
+  }
+}
