@@ -18,13 +18,16 @@ const Navbar = (props) =>{
 
 
     function post(){
+        /*
         const data = {
             text: 'Fuck the colts and they mama bitch',
             sender: 'Jacob Anderson',
             username: 'Jaa5v',
             type: 'Bet',
         }
-        axios.post('http://10.0.2.2:5000/posts', data)
+        axios.post('http://10.0.2.2:5000/posts', data) */
+
+        navigation.navigate('Post')
     }
 
 

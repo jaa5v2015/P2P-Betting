@@ -7,7 +7,7 @@ import Home from './Screens/Home';
 import Login from './Screens/Login';
 import Account from './Screens/Account';
 import Navbar from './Components/Navbar';
-
+import PostPage from './Screens/postPage';
 const Stack = createNativeStackNavigator();
 
 
@@ -47,7 +47,7 @@ export default class App extends React.Component {
            loggedIn: this.state.loggedIn, 
            account: this.state.account,
            }}/>
-      
+        <Stack.Screen name="Post" component={PostPage} initialParams={{account: this.state.account}}/>
         <Stack.Screen name='Login' component={Login} initialParams={{renderLogin:this.renderLogin}} />
         <Stack.Screen name='Account' component={Account} initialParams={{account: this.state.account}} />
       </Stack.Navigator>
