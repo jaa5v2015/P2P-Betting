@@ -14,7 +14,7 @@ const LoginBox = (props) =>{
        var loggedIn = false
      
        
-       props.data.accounts.map(
+       props.data.map(
            account=>{
                
                if(account.username == username & account.password == password){

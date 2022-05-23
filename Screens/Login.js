@@ -20,7 +20,7 @@ const Login = ({route}) =>{
     const  fetchData = async () => {
         
 
-         const res = await axios.get('http://10.0.2.2:3000/profile')
+         const res = await axios.get('http://10.0.2.2:5000/users')
 
          setData(res.data)
          
