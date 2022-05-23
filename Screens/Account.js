@@ -1,5 +1,5 @@
 import { useNavigation } from '@react-navigation/native';
-import {View, Text, Image} from 'react-native';
+import {View, Text, Image, ScrollView} from 'react-native';
 import { useEffect, useState } from 'react';
 import styles from '../Style/styles'
 import Feed from '../Components/Feed';
@@ -25,7 +25,10 @@ const Account = ({route}) =>{
             </View>
 
              <View>
-                <Feed posts={route.params.account.posts}/>
+
+                <ScrollView>
+                    <Feed></Feed>
+                </ScrollView>
              </View>
         </View>
         

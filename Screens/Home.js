@@ -1,6 +1,7 @@
-import {View, Text, Button } from 'react-native'
+import {View, Text, Button, ScrollView } from 'react-native'
 import { useEffect } from 'react/cjs/react.production.min';
 import Feed from '../Components/Feed';
+
 const Home = ({navigation, route}) =>{
     
 
@@ -25,7 +26,9 @@ const Home = ({navigation, route}) =>{
         <View style={{justifyContent:'center', alignItems:'center', flex:1}}>
         <View>
 
-            <Text>Feed</Text>
+            <ScrollView>
+                <Feed/>
+            </ScrollView>
          
         </View>
        

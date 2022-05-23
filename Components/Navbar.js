@@ -24,7 +24,7 @@ const Navbar = (props) =>{
             username: 'Jaa5v',
             type: 'Bet',
         }
-        axios.post('http://10.0.2.2:5000/users', data)
+        axios.post('http://10.0.2.2:5000/posts', data)
     }
 
 
