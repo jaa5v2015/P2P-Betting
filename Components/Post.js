@@ -19,6 +19,8 @@ const Post = (props) =>{
             <Icon type='font-awesome' size={12} name='comment'/>
             <Icon type='font-awesome' size={12} name='heart' color={"red"}/>
             <Icon type='font-awesome' size={12} name='share'/>
+            <Icon type='font-awesome' size={12} name='trash'/>
+
 
              
          </View>

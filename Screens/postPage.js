@@ -21,10 +21,14 @@ const PostPage = ({route}) =>{
         navigation.navigate('Home', {update: !update })
     }
 
+    function cancel(){
+        navigation.goBack()
+    }
+
     return(
         <View style={styles.container}>
             <View style={{display:'flex', flexDirection:'row', justifyContent:'space-around', marginBottom:'2%'}}>
-                <Button title="Cancel"/>
+                <Button title="Cancel" onPress={()=> cancel()}/>
                 <Button title="Post" onPress={() => post(text)}/>
 
                 

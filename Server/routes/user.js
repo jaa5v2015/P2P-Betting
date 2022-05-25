@@ -39,9 +39,9 @@ router.get('/', (req,res) =>{
 
 
 
-
 router.post('/', (req, res)=>{
     const user = req.body
+    console.log(req.body)
     const userId = uuidv4();
 
     const userWithId = {...user, id: userId}

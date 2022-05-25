@@ -1,18 +1,34 @@
 import {View, Text, TextInput, SafeAreaView, StyleSheet, Button} from 'react-native';
 import {useState} from 'react'
 import { useNavigation } from '@react-navigation/native';
+import axios from 'axios';
 
 
 const CreateAccount = (route) =>{
     const navigation= useNavigation()
     const [username, setUser] = useState('')
     const [password, setPassword] = useState('')
+    const [name, setName] = useState('')
     
-    //CREATE LOGIN FUNCTION  
-   const login = ( username, password) =>{
+   const createAccount = ( username, password, name) =>{
     
-    navigation.navigate('Account',{loggedIn: true, account: {username: username, password: password}})
-    route.renderLogin(true)
+    let data = {
+        username: username,
+        password: password,
+        followers: [ ],
+        info: {
+            bio: " ",
+            profilePic: " ",
+            name: name
+        },
+        following: [ ],
+        posts: [ ]
+    }
+    axios.post('http://10.0.2.2:5000/users', data)
+
+
+    navigation.navigate('Login')
+
    }
     return(
         <View style={[styles.shadow,{display:'flex', flexDirection:'column', padding:'12%', padding: 10, margin:10, paddingTop:30,}]} >
@@ -20,10 +36,10 @@ const CreateAccount = (route) =>{
                 
                 <TextInput style={styles.input} title="Username" onChangeText={(text) => setUser(text)} />
                 <TextInput style={styles.input} onChangeText={(text) => setPassword(text)}/>
-                <TextInput style={styles.input} title="Name" onChangeText={(text) => setUser(text)} />
+                <TextInput style={styles.input} title="Name" onChangeText={(text) => setName(text)} />
                 
 
-                <Button title='Create Account' onPress={() => login(username, password)}/>
+                <Button title='Create Account' onPress={() => createAccount(username, password, name)}/>
                 <View class='divider'/>
                 
         
