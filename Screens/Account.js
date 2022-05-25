@@ -7,7 +7,7 @@ import axios from 'axios'
 const Account = ({route}) =>{
  
     const [account, setAccount] = useState([])
-
+    // ACCOUNT ONLY LOADS ONCE
     return(
         <View style={styles.container}>
 
@@ -27,7 +27,7 @@ const Account = ({route}) =>{
              <View>
 
                 <ScrollView>
-                    <Feed></Feed>
+                    <Feed />
                 </ScrollView>
              </View>
         </View>

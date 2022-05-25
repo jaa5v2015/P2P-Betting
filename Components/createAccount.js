@@ -20,6 +20,9 @@ const CreateAccount = (route) =>{
                 
                 <TextInput style={styles.input} title="Username" onChangeText={(text) => setUser(text)} />
                 <TextInput style={styles.input} onChangeText={(text) => setPassword(text)}/>
+                <TextInput style={styles.input} title="Name" onChangeText={(text) => setUser(text)} />
+                
+
                 <Button title='Create Account' onPress={() => login(username, password)}/>
                 <View class='divider'/>
                 

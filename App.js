@@ -46,13 +46,14 @@ export default class App extends React.Component {
          initialParams={{
            loggedIn: this.state.loggedIn, 
            account: this.state.account,
+           update: false
            }}/>
         <Stack.Screen name="Post" component={PostPage} initialParams={{account: this.state.account}}/>
         <Stack.Screen name='Login' component={Login} initialParams={{renderLogin:this.renderLogin}} />
         <Stack.Screen name='Account' component={Account} initialParams={{account: this.state.account}} />
       </Stack.Navigator>
         
-      <Navbar loggedIn={this.state.loggedIn} renderLogin={this.renderLogin}/>
+      <Navbar loggedIn={this.state.loggedIn} renderLogin={this.renderLogin} account={this.state.account}/>
     </NavigationContainer>
     )
   }

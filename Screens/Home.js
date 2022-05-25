@@ -4,7 +4,7 @@ import Feed from '../Components/Feed';
 
 const Home = ({navigation, route}) =>{
     
-
+console.log(route.params)
    if(route.params.loggedIn == false){
     return(
         
@@ -23,14 +23,14 @@ const Home = ({navigation, route}) =>{
    }
    else{
        return(
-        <View style={{justifyContent:'center', alignItems:'center', flex:1}}>
-        <View>
+        <View style="style.container">
+        
 
-            <ScrollView>
+            <ScrollView style="style.container">
                 <Feed/>
             </ScrollView>
          
-        </View>
+        
        
         
     </View>

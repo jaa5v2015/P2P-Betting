@@ -53,7 +53,7 @@ const LoginBox = (props) =>{
                 <TextInput style={styles.input} title="Username" onChangeText={(text) => setUser(text)} />
                 <TextInput style={styles.input} onChangeText={(text) => setPassword(text)}/>
                 <Button title='Login' onPress={() => login(username, password)}/>
-                <View class='divider'/>
+               
            
 
                

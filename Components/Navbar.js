@@ -6,6 +6,7 @@ import axios from 'axios';
 const Navbar = (props) =>{
     const navigation = useNavigation()
 
+
     function login(){
         navigation.navigate('Login')
         
@@ -26,13 +27,14 @@ const Navbar = (props) =>{
             type: 'Bet',
         }
         axios.post('http://10.0.2.2:5000/posts', data) */
-
+       
         navigation.navigate('Post')
+        console.log(props.account)
     }
 
 
     
-    if(props.loggedIn == false){
+    if(props.loggedIn == false || post == true){
         return(
             <View style={{display:'none'}}>
                 
