@@ -17,7 +17,7 @@ const Post = (props) =>{
          </View>
          <View style={{marginLeft:40, marginRight:40, marginTop:10, display:'flex', flexDirection:'row', justifyContent:'space-between', alignItems:'center'}}>
             <Icon type='font-awesome' size={12} name='comment'/>
-            <Icon type='font-awesome' size={12} name='heart' color={"red"}/>
+            <Icon type='font-awesome' size={12} name='heart' color={"blue"}/>
             <Icon type='font-awesome' size={12} name='share'/>
             <Icon type='font-awesome' size={12} name='trash'/>
 

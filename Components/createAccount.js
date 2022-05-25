@@ -27,7 +27,7 @@ const CreateAccount = (route) =>{
     axios.post('http://10.0.2.2:5000/users', data)
 
 
-    navigation.navigate('Login')
+    navigation.navigate('Login', {newAccount: false})
 
    }
     return(

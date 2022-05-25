@@ -7,15 +7,17 @@ import { Divider } from 'react-native-elements';
 const Feed = (props) =>{
 
     const [data, setData] = useState([]);
-
+    const [update, setUpdate] = useState(false)
     useEffect(()=>{
         fetchData()
+       
     }, [])
 
 
     const  fetchData = async () => {
          const res = await axios.get('http://10.0.2.2:5000/posts')
          setData(res.data.reverse())
+         setUpdate(!update)
       }
 
 

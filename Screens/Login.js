@@ -5,16 +5,16 @@ import CreateAccount from '../Components/createAccount';
 import axios from "axios"
 const Login = ({route}) =>{
     
-    const [newAccount, makeAccount] = useState(false)
+    const [newAccount, makeAccount] = useState(route.params.newAccount)
     const [data, setData] = useState([])
    
     function createAccount(){
-        makeAccount(true)
+        makeAccount(!route.params.newAccount)
     }
 
     useEffect(()=>{
         fetchData()
-    }, [])
+    }, [route.params.newAccount])
 
 
     const  fetchData = async () => {
@@ -26,7 +26,7 @@ const Login = ({route}) =>{
          
          
       }
-    if(newAccount == false){
+    if(route.params.newAccount == false){
         return(
             <View style={{flexDirection:"column", alignItems:'center', flex: 0.7, justifyContent:'center'}}>
                 <LoginBox renderLogin={route.params.renderLogin} data={data} />

@@ -24,8 +24,8 @@ export default StyleSheet.create({
     post:{
         display:'flex',
         flexDirection:'column',
-        marginTop:20,
-        padding:10,
+        marginTop:15,
+        padding:5,
        
         
 

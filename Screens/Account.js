@@ -8,6 +8,13 @@ const Account = ({route}) =>{
  
     const [account, setAccount] = useState([])
     // ACCOUNT ONLY LOADS ONCE
+
+    useEffect(() =>{
+        console.log(route.params.account)
+        console.log('rendering')
+    }) 
+
+
     return(
         <View style={styles.container}>
 

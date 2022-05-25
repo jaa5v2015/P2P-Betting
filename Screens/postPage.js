@@ -7,8 +7,13 @@ import axios  from 'axios';
 const PostPage = ({route}) =>{
     const [text, setText] = useState('')    
     const [type, setType] = useState('Post')
-    const update = false
+    const [update, setUpdate] = useState(false)
     const navigation = useNavigation()
+
+
+    useEffect(() =>{
+        console.log('Updating')
+    }, [update])
 
     function post(text){
         const data = {
@@ -18,7 +23,9 @@ const PostPage = ({route}) =>{
             type: type,
         }
         axios.post('http://10.0.2.2:5000/posts', data)
-        navigation.navigate('Home', {update: !update })
+        setUpdate(!update)
+        navigation.navigate('Home')
+        
     }
 
     function cancel(){

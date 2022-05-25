@@ -3,8 +3,7 @@ import { useEffect } from 'react/cjs/react.production.min';
 import Feed from '../Components/Feed';
 
 const Home = ({navigation, route}) =>{
-    
-console.log(route.params)
+
    if(route.params.loggedIn == false){
     return(
         
@@ -28,6 +27,7 @@ console.log(route.params)
 
             <ScrollView style="style.container">
                 <Feed/>
+               
             </ScrollView>
          
         

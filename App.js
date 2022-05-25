@@ -49,7 +49,7 @@ export default class App extends React.Component {
            update: false
            }}/>
         <Stack.Screen name="Post" component={PostPage} initialParams={{account: this.state.account}}/>
-        <Stack.Screen name='Login' component={Login} initialParams={{renderLogin:this.renderLogin}} />
+        <Stack.Screen name='Login' component={Login} initialParams={{renderLogin:this.renderLogin, newAccount: false}} />
         <Stack.Screen name='Account' component={Account} initialParams={{account: this.state.account}} />
       </Stack.Navigator>
         
