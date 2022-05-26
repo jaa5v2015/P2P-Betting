@@ -4,6 +4,8 @@ import Feed from '../Components/Feed';
 
 const Home = ({navigation, route}) =>{
 
+    
+
    if(route.params.loggedIn == false){
     return(
         

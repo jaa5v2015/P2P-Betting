@@ -1,14 +1,15 @@
 import {View, Text, TextInput, SafeAreaView, StyleSheet, Button, Alert} from 'react-native';
 import {useEffect, useState} from 'react'
 import { useNavigation } from '@react-navigation/native';
+import axios from 'axios';
 
 
 const LoginBox = (props) =>{
     const navigation= useNavigation()
     const [username, setUser] = useState('')
     const [password, setPassword] = useState('')
-    const [account, setAccount] = useState([])
-   
+    const [accountId, setAccountId] = useState([])
+    const [acc, setAccount] = useState([])
     //CREATE LOGIN FUNCTION  
    const login = (username, password) =>{
        var loggedIn = false
@@ -19,9 +20,9 @@ const LoginBox = (props) =>{
                
                if(account.username == username & account.password == password){
                    
-                    setAccount(account)
-                    
-                    navigation.navigate('Account',{loggedIn: true, account: account})
+                    setAccountId(account.id)
+                    setAccount(axios.get(`http://10.0.2.2:5000/users/${accountId}`))
+                    navigation.navigate('Account',{loggedIn: true, account:account})
                     props.renderLogin(true, account)
                     loggedIn = true
                } 

@@ -12,7 +12,7 @@ const Account = ({route}) =>{
     useEffect(() =>{
         console.log(route.params.account)
         console.log('rendering')
-    }) 
+    }, []) 
 
 
     return(

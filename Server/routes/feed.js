@@ -31,4 +31,11 @@ router.post('/', (req, res)=>{
     res.send(`${postWithId}`)
 })
 
+router.get('/:id', (req, res) =>{
+    const {id} = req.params
+
+    const foundPost = posts.find((post) => post.id == id)
+    res.send(foundPost)
+})
+
 export default router;
